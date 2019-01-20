@@ -1,0 +1,225 @@
+\documentclass[xcolor={dvipsnames}]{beamer}
+\usetheme{CambridgeUS}
+%if you would like a specific color theme
+%\usecolortheme{seahorse}
+%if you don't like navigation symbols
+%\setbeamertemplate{navigation symbols}{}
+
+%Useful packages
+\usepackage[english]{babel}
+\usepackage{xcolor,graphicx}
+\usepackage{amsmath}
+\usepackage{booktabs}
+
+
+%%%%%%%%%%%%%%%%%%COLOUR GAMES%%%%%%%%%%%%%%%%%%%%%%%%%
+%uncomment for default
+%Define new colours (UOIT official colours)
+\definecolor{uoitbluedark}{HTML}{003580}
+\definecolor{uoitbluelight}{HTML}{0082D1}
+
+%changing colours in the main theme
+\setbeamercolor{palette primary}{fg=black, bg=gray!60!white}
+\setbeamercolor{palette secondary}{fg=black, bg=gray!20!white}
+\setbeamercolor{palette tertiary}{fg=white, bg=uoitbluedark}
+
+%changing colours in the titles
+\setbeamercolor{frametitle}{fg=uoitbluedark!100!black}
+\setbeamercolor{title}{fg=uoitbluedark!100!black}
+
+%changing colours in blocks
+\setbeamercolor{block title}{fg=uoitbluedark}
+\setbeamercolor{block title example}{fg=uoitbluelight}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%TITLES AND THE LIKE%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\title[LaTeX Presentations]{Making Presentations in \LaTeX}
+\subtitle{A hands-on workshop}
+\date{\today}
+\author{Margarita Tzivaki}
+\logo{\includegraphics[width=.13\textwidth]{logo}}
+\institute[ASC]{Academic Skills Club}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+
+\frame{\maketitle}
+\section{Text and Organization}
+\subsection{Text}
+\begin{frame}{Text}{Fun text things}
+We can do all kinds of things with text. You can make text \textbf{bold}, 
+\emph{italicized}, and \textcolor{blue}{coloured}. In addition it is also 
+useful to know how to superscript text A${}^{\text{stuff}}$ or subscript 
+B${}_{\text{stuff}}$. 
+\end{frame}
+\subsection{Organization}
+\begin{frame}{Organization}{Look how well it works}
+Woot woot!
+\end{frame}
+
+\section{Slide essentials}
+\subsection{Columns}
+\begin{frame}{Columns}
+
+\begin{columns}
+\begin{column}{0.5\textwidth}
+something
+\end{column}
+\begin{column}{0.5\textwidth}
+something else
+\end{column}
+\end{columns}
+
+\end{frame}
+\subsection{Spacing}
+\begin{frame}{Spacing}{Vertical and horizontal}
+
+Some text here with vertical space after
+
+\vspace{2cm}
+
+More text after that and some horizontan space \hspace{1cm} boom!
+
+\end{frame}
+
+\subsection{Lists}
+\begin{frame}{Lists and their spacing}{Enumerated lists}
+There are two main ways to create lists in LaTeX, enumerate (for numbered lists) 
+and itemize.
+%As always we have to start the environment 
+\begin{enumerate}
+%Add items to the list via \item
+\item This is a thing
+\item This is another thing 
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}{Itemized lists}
+
+The lists don't have to be numbered. Using itemize will give you bullet points 
+(but you can change what they are). Here is an example using enumerate. For controlling spacing you will need the command itemsep.
+
+\begin{itemize}
+\setlength{\itemsep}{1.5em}
+%Again we add items to the list with \item 
+\item Stuff
+\item More stuff 
+\end{itemize}
+\end{frame}
+
+\subsection{Blocks}
+\begin{frame}{Blocks}{Fun with Lego!}
+We can make regular blocks:
+\begin{block}
+{Blocktitle}{Some important text}
+\end{block}
+
+Or we can make alertblocks:
+\begin{alertblock}
+{Warning!}{Warning message}
+\end{alertblock}
+
+Or we can make exampleblocks:
+\begin{exampleblock}
+{Example Title}{Example text that is very instructive}
+\end{exampleblock}
+\end{frame}
+
+\subsection{Pretty Pictures}
+\begin{frame}
+
+%As always we have to start the environment 
+\begin{figure}[h]
+%This is how we can center the figure 
+\begin{center}
+%You can resize the figure using the scale option
+%There are options to clip the figure as well 
+\includegraphics[scale=1.5]{logo.png}
+\end{center}
+%Add your caption here 
+\caption{We can add captions to our figures as well}
+%Close the environment 
+\end{figure}
+
+\end{frame}
+
+\subsection{Math and Equations}
+\begin{frame}{Using math mode}
+
+As usually one of the primary reasons you will use \LaTeX \ is for writing equations.  
+
+\begin{equation}
+F_{net}=ma
+\end{equation}
+
+Equations don't have to be numbered. You can disable the numbering by putting 
+an asterisk in the begin and end statements 
+\begin{equation*}
+E=mc^{2}
+\end{equation*}
+It is also very convenient to write multiple lines in an equation using 
+the align environment:
+\begin{align*}
+2x - 5y &=  8 \\ 
+3x + 9y &=  -12
+\end{align*}
+\end{frame}
+
+\begin{frame}{Using math mode even more}
+
+You can write all sorts of fancy symbols (which can be found on the cheatsheet!)
+\begin{equation*}
+i\hbar \frac{\partial | \Psi \rangle}{ \partial t}=\hat{H}|\Psi \rangle
+\end{equation*}
+
+Math mode can be used inline with text (e.g. $e^{-\lambda x}$) which is very 
+convenient. All you need to do is wrap your equation (or whatever you are using)
+in dollar signs.
+
+\end{frame}
+
+
+\subsection{Tables}
+\begin{frame}{Making Tables}
+Here we will create tables which can be a nice way of presenting data. 
+
+%Begin the tabular environment 
+\begin{center}
+%The c's indicate center justified text
+%Vertical lines will put vertical lines between columns 
+\begin{tabular} { c  c  c }
+\toprule
+Fruit & Quantity & Price \\ \midrule
+Apple & 2 & \$2.00 \\ \midrule
+Banana & 5 & \$3.50 \\ \midrule
+Orange & 8 & \$4.00 \\ 
+\bottomrule
+\end{tabular}
+\end{center}
+
+\end{frame}
+
+\subsection{Footnotes}
+
+\begin{frame}{How to add footnotes}
+Here is some text that will need an explanation in a footnote \footnote[frame]{\footnotesize{Here is the associated footnote}} and then we can add more text with another footnote \footnote[frame]{The other footnote}.
+\end{frame}
+
+\section{References}
+\begin{frame}{Citing and Citations}{Citing}
+
+This is a citation \cite{greenwade93}. You will probably need to compile 
+twice to get the reference to show up. 
+\end{frame}
+
+\begin{frame}{References}
+
+\bibliographystyle{plain}
+\bibliography{example_bib}
+
+\end{frame}
+
+\end{document}
